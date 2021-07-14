@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Post, User } = require('../Tech-Blog/models');
-const withAuth = require('../Tech-Blog/utils/auth');
+const { Post, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+    
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
